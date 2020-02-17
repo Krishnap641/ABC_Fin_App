@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample loan application form</title>
+    <center><H2>ABC Bank Loan application form submission</H2></center>
+</head>
+<body>
+<form action = "{{url_for('loan_application')}}" method="post">
+ <p><b>Your name :</b> <input type = "text" size=40 name="name" value={{name}} >
+          <b>Your email :</b> <input type = "text" size=40 name="email" value={{email}} >
+     <b>Your Age :</b> <input type = "text" size=5 name="age" value={{age}} ></p>
+<p><b>Your Gender :</b> <input type="radio" name="gender" value="1" > Male
+                        <input type="radio" name="gender" value="0" required>Female</p>
+    <p><b>Your Marital Status :</b> <input type="radio" name="married" value="1" > Yes
+                        <input type="radio" name="married" value="0" >No</p>
+    <p><b>No of Dependents :</b> <input type="radio" name="dependents" value="0" > 0
+                        <input type="radio" name="dependents" value="1" >1
+    <input type="radio" name="dependents" value="2" >2
+    <input type="radio" name="dependents" value="3" >3+</p>
+<p><b>Your Education :</b> <input type="radio" name="education" value="0" >Non-Graduate
+    <input type="radio" name="education" value="1" >Graduate</p>
+    <p><b>Self Employed :</b> <input type="radio" name="employment" value="0" >No
+                     <input type="radio" name="employment" value="1" >Yes
+    <p><b>Applicant Income :</b> <input type="text" name="appincome" value="0" ></p>
+    <p><b>Co Applicant Income :</b> <input type="text" name="coappincome" value="0" ></p>
+    <p><b>Loan Amount :</b> <input type="text" name="loan_amount" value="0" ></p>
+    <p><b>Loan Term :</b> <input type="text" name="loan_term" value="0" ></p>
+<p><b>Credit History :</b> <input type="radio" name="credit_history" value="0" >No
+                     <input type="radio" name="credit_history" value="1" >Yes
+    <p><b>Property Area :</b> <input type="radio" name="area" value="2" >Urban
+                     <input type="radio" name="area" value="1" >Suburban
+    <input type="radio" name="area" value="0" >Rural</p>
+    <b></b><input type = "submit" value="Submit" />
+    <b><H2>{{loan_status}}</H2></b>
+</form>
+</body>
+</html>
