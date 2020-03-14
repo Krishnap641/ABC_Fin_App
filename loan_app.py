@@ -106,6 +106,7 @@ def write_loan_data(loan_data):
     refno = cur.lastrowid
     print(refno)
     cur.close()
+    conn.close()
     logging.info("DB commit successful")
     return refno
 
