@@ -1,7 +1,7 @@
 import sqlite3
 
 # The database will be created in the location where 'py' file is saved
-conn = sqlite3.connect('TestDB.db')  
+conn = sqlite3.connect('loan_data.db')  
 c = conn.cursor() 
 
 # Create table - "loan_application"
@@ -30,4 +30,4 @@ CREATE TABLE "loan_application" (
 
 conn.commit()
 
-print("TestDB created successfully")
+print("DB created successfully")
