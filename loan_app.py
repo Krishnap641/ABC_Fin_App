@@ -22,6 +22,11 @@ logging.basicConfig(level=logging.DEBUG,
                     datefmt='%m-%d %H:%M',
                     filename=LOG_FILE_NAME,
                     filemode='w')
+#initialize ml model
+from joblib import dump, load
+# load the saved model
+loan_app = load('loan_approval.joblib')
+
 #initialize database
 def db_connect():
     # establsih the connection
@@ -65,9 +70,12 @@ def loan_application():
             logging.info(loan_data)
             refno = write_loan_data(loan_data)
             # if you want to use ML model to automatically approve the loan
-            #pred_loan_status = loan_app.predict(loan_data)
-            #if (pred_loan_status == 1):
-            loan_status = 'Your loan application with ID [ ' + str(refno) + ' ] is submitted successfully'
+            pred_loan_status = loan_app.predict([[int(x) for x in loan_data[3:]]])
+            if (pred_loan_status == 1):
+                mess = 'approved'
+            else:
+                mess = 'rejected'
+            loan_status = 'Your loan application with ID [ ' + str(refno) + '] is ' + mess
             logging.info(loan_status)
         except:
             loan_status = 'Error!'
@@ -111,7 +119,7 @@ def write_loan_data(loan_data):
     return refno
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
 
 
 # unit test database sql
