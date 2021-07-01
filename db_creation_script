@@ -1,3 +1,4 @@
+-- script for creating loan_application data
 CREATE TABLE "loan_application" (
 	"loanid"	INTEGER DEFAULT 1000 PRIMARY KEY AUTOINCREMENT,
 	"name"	TEXT,
