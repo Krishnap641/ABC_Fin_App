@@ -119,7 +119,7 @@ def write_loan_data(loan_data):
     return refno
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=80)
 
 
 # unit test database sql
